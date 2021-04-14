@@ -1,11 +1,23 @@
 
+
 	<script type="text/javascript" src="inc/js/app.js"></script>
 	<script type="text/javascript" src="inc/js/jquery-3.6.0.js"></script>
 	<script type="text/javascript" src="inc/js/login.js"></script>
 	<script type="text/javascript" src="inc/js/clientes.js"></script>
 	<script type="text/javascript" src="inc/js/productos.js"></script>
-	<script src="http://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="inc/js/jquery.dataTables.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.datat').DataTable( {
+            bSort: false,
+            aoColumns: [ { sWidth: "45%" }, { sWidth: "45%" }, { sWidth: "10%", bSearchable: false, bSortable: false } ],
+        "scrollY":        "200px",
+        "scrollCollapse": true,
+        "info":           true,
+        "paging":         true
+    } );
+	</script>
 </body>
 
 
@@ -35,6 +47,7 @@
 						</div>
 					</div>
 				</div>
+
 			</footer>
 		</div>
 	</div>

@@ -10,13 +10,13 @@
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="../img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="/img/icons/icon-48x48.png" />
 
 	<title>Programacion Web</title>
 
+
 	<link href= "inc/css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-	<link href="http://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+	<link href="inc/css/jquery.dataTables.css" rel="stylesheet">
 	
 </head>

@@ -1,8 +1,11 @@
-window.onload = function () {
-    listadoclientes();  
-   
-}
+//window.onload = function () {
+    
+//}
 
+
+$(document).ready(function(){
+    listadoclientes();  
+});
 
 
 function AdicionarCliente()
@@ -35,8 +38,14 @@ function AdicionarCliente()
          
         }
     });
-}   
+} 
 
+
+function  listadoclientes()
+{  
+    $("#tablaclientes").load("controles/cliente.php");  
+ 
+}
 
 
 function Limpiar()

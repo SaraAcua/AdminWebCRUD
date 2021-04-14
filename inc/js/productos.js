@@ -1,8 +1,8 @@
-window.onload = function () {
-    
-   
-}
 
+
+$(document).ready(function(){
+    listadoproductos();  
+});
 
 
 function AdicionarProductos()
@@ -32,6 +32,12 @@ function AdicionarProductos()
         }
     });
 }   
+
+function  listadoproductos()
+{  
+    $("#tablaproductos").load("controles/producto.php");  
+ 
+}
 
 
 

@@ -50,6 +50,21 @@ include("inc/menu.php");
 </div>
 </div>
 
+<!--Listado de producto--->
+<div class="container-fluid p-0">
+<div class="card">
+<div class="card-body">
+
+<table id="tablaproductos" class="table table-hover my-0 datat" >
+
+
+</table>
+
+
+</div>
+</div>
+</div>
+
 
 
 
