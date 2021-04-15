@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="inc/js/productos.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="inc/js/jquery.dataTables.js"></script>
-	<script>
+	<!--<script>
 		$(document).ready(function(){
 			$('.datat').DataTable( {
             bSort: false,
@@ -18,7 +18,7 @@
         "paging":         true
     } );
 	</script>
-</body>
+</body>-->
 
 
 <footer class="footer">

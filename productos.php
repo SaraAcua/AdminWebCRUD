@@ -24,7 +24,7 @@ include("inc/menu.php");
     <div class="col-md-4 mb-3">
       <label for="validationCustomUsername">Foto</label>
       
-        <input type="file" class="form-control" id="fotoproducto" placeholder="Foto" aria-describedby="inputGroupPrepend" required>
+        <input type="imput" class="form-control" id="fotoproducto" placeholder="Foto" aria-describedby="inputGroupPrepend" required>
         <div class="invalid-feedback">
         Ingrese un Dato Valido
         </div>

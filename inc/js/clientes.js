@@ -23,7 +23,7 @@ function AdicionarCliente()
         dataType: "html",
         url: "controles/cliente.php",
         data:{
-            accion:"adicionar",
+            accion:"Adicionar",
             nombrecliente:nombrecliente,
             apellidocliente:apellidocliente,
             fotocliente:fotocliente,
