@@ -1,24 +1,18 @@
 
 
-	<script type="text/javascript" src="inc/js/app.js"></script>
-	<script type="text/javascript" src="inc/js/jquery-3.6.0.js"></script>
+
+
+
+
+
+	<script src="inc/js/app.js"></script>
 	<script type="text/javascript" src="inc/js/login.js"></script>
 	<script type="text/javascript" src="inc/js/clientes.js"></script>
 	<script type="text/javascript" src="inc/js/productos.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script src="inc/js/jquery.dataTables.js"></script>
-	<!--<script>
-		$(document).ready(function(){
-			$('.datat').DataTable( {
-            bSort: false,
-            aoColumns: [ { sWidth: "45%" }, { sWidth: "45%" }, { sWidth: "10%", bSearchable: false, bSortable: false } ],
-        "scrollY":        "200px",
-        "scrollCollapse": true,
-        "info":           true,
-        "paging":         true
-    } );
-	</script>
-</body>-->
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+
+</body>
 
 
 <footer class="footer">
@@ -26,7 +20,7 @@
 					<div class="row text-muted">
 						<div class="col-6 text-start">
 							<p class="mb-0">
-								<a href="#" class="text-muted"><strong>Programacion Web - Sara Acuña A.</strong></a> &copy;
+								<a href="#" class="text-muted"><strong>Programacion Web - Sara Acuña.</strong></a> &copy;
 							</p>
 						</div>
 						<div class="col-6 text-end">
@@ -47,8 +41,10 @@
 						</div>
 					</div>
 				</div>
-
 			</footer>
 		</div>
 	</div>
+
+
+
 </html>

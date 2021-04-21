@@ -28,6 +28,7 @@ if ($username != "" && $password != ""){
     $foto = $row['foto'];
     $cargo = $row['position'];
     
+    
    
     if($count > 0){
         $_SESSION['usuario'] = $nombre;

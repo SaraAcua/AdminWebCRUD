@@ -72,16 +72,28 @@ include("inc/menu.php");
 </div>
 </div>
 
-<!--Listado de clientes--->
+<!--Listas de clientes-->
+
 <div class="container-fluid p-0">
 <div class="card">
 <div class="card-body">
 
-<table id="tablaclientes" class="table table-hover my-0 datat">
 
+<table id="tablaclientes" class="table table-hover my-0" >
+<thead>
+<tr>
+
+<th>Nombre</th>
+<th>Apellido</th>
+<th>Foto</th>
+
+</tr>
+</thead>
+<tbody>
+
+</tbody>
 
 </table>
-
 
 </div>
 </div>
