@@ -17,6 +17,7 @@ include("inc/menu.php");
   <div class="row">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">Nombres</label>
+      <input type="hidden" class="form-control" id="idcliente">
       <input type="text" class="form-control" id="nombrecliente" placeholder="Nombres"  required>
       <div class="invalid-feedback">
       Ingrese un Dato Valido
@@ -86,6 +87,11 @@ include("inc/menu.php");
 <th>Nombre</th>
 <th>Apellido</th>
 <th>Foto</th>
+<th>Direccion</th>
+<th>Ciudad</th>
+<th>Telefono</th>
+<th>Acciones</th>
+
 
 </tr>
 </thead>

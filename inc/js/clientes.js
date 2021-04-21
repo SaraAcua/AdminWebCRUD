@@ -60,7 +60,7 @@ function  listadoclientes()
             {"data":"foto"},
             
             {"render": function () {
-                return "<button data-id="+"id"+"onclick='EditarCliente()'  type='button' class='btn btn-edit btn-success btn-sm'>Editar</button>"
+                return "<button data-id="+"id"+"onclick='BuscarCliente()'  type='button' class='btn btn-edit btn-success btn-sm'>Editar</button>"
               }},
             {"defaultContent": "<button data-id="+"id"+"onclick='EditarCliente()'  type='button' class='btn btn-edit btn-success btn-sm'>Editar</button>"},
         

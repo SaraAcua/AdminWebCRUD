@@ -104,9 +104,11 @@ break;
 break;
 
 default:
+
 ListarClientes();
 break;
 }
+
 function ListarClientes(){
 
   require "config.php";
