@@ -97,32 +97,9 @@ include("inc/menu.php");
 
                 </table>
 
-
-<th>Nombre</th>
-<th>Apellido</th>
-<th>Foto</th>
-<th>Direccion</th>
-<th>Ciudad</th>
-<th>Telefono</th>
-<th>Acciones</th>
-
-
-</tr>
-</thead>
-<tbody>
-
-</tbody>
-
-</table>
-
-</div>
-</div>
-</div>
-
             </div>
         </div>
     </div>
-
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>

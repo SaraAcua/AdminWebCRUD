@@ -58,24 +58,7 @@ function  listadoclientes()
             "url": "controles/cliente.php",
             dataSrc: ''
         },
-
-        
-        "columns":[
-            {"render": function () {
-                return "<img class='borrar' src='https://noverbal.es/uploads/blog/rostro-de-un-criminal.jpg' width=50 style='cursor:pointer' />"
-              }},
-            {"data":"nombre"},
-            {"data":"apellido"},
-            {"data":"foto"},
-            
-            {"render": function () {
-                return "<button data-id="+"id"+"onclick='BuscarCliente()'  type='button' class='btn btn-edit btn-success btn-sm'>Editar</button>"
-              }},
-            {"defaultContent": "<button data-id="+"id"+"onclick='EditarCliente()'  type='button' class='btn btn-edit btn-success btn-sm'>Editar</button>"},
-        
-        ]
-
-        ,columnDefs: [{
+        columnDefs: [{
                 "targets": 0,
                 "data": 'Foto',
                 "render": function (data, type, row, meta) {
@@ -126,7 +109,6 @@ function  listadoclientes()
             },
         }, retrieve: true,
         paging: false
-
     });
 
 }
