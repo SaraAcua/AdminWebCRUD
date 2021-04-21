@@ -1,6 +1,6 @@
 window.onload = function () {
     listadoclientes();  
-    //ListarClientes();
+    ListarClientes();
 }
 
 
@@ -34,7 +34,7 @@ function AdicionarCliente()
         },      
         success: function(resp){
            // $("#respuesta").html(resp);
-            Limpiar();
+          Limpiar();
          
         }
     });
