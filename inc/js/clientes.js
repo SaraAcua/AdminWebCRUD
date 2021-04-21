@@ -1,6 +1,6 @@
 window.onload = function () {
     listadoclientes();  
-    ListarClientes();
+    //ListarClientes();
 }
 
 
