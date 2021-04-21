@@ -1,6 +1,7 @@
 <?php
 
 require "config.php";
+error_reporting(0);
 
 if(empty($_POST['accion'])){
   $_POST['accion']="General";
@@ -10,7 +11,7 @@ switch($_POST['accion']){
 
   case "Adicionar":
     
-if($_POST['idcliente']==""){
+if($_POST['idcliente']==="undefined"||$_POST['idcliente']===""){
 
   $nombre = $_POST['nombrecliente'];       //'Juanita'; //
   $apellido = $_POST['apellidocliente'];   //   'perez' ; //
@@ -107,12 +108,13 @@ default:
 ListarClientes();
 break;
 }
+
 function ListarClientes(){
 
   require "config.php";
     
   //generamos la consulta
-$sql = "SELECT * FROM clientes";
+$sql = "SELECT Foto,Id,Nombre,Apellido,Direccion,Ciudad,Telefono FROM clientes";
 
 mysqli_set_charset($con, "utf8"); //formato de datos utf8
 

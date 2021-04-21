@@ -1,5 +1,5 @@
 window.onload = function () {
-    listadoclientes();  
+    listadoclientes();
     //ListarClientes();
 }
 
@@ -14,125 +14,185 @@ function AdicionarCliente()
     var direccioncliente = $("#direccioncliente").val();
     var ciudadcliente = $("#ciudadcliente").val();
     var telefonocliente = $("#telefonocliente").val();
-   
 
-  //  $("#respuesta").html("<img src="loader.gif" /> Por favor espera un momento");
+    //  $("#respuesta").html("<img src="loader.gif" /> Por favor espera un momento");
+    var data = {
+        accion: "Adicionar",
+        idcliente: idcliente,
+        nombrecliente: nombrecliente,
+        apellidocliente: apellidocliente,
+        fotocliente: fotocliente,
+        direccioncliente: direccioncliente,
+        ciudadcliente: ciudadcliente,
+        telefonocliente: telefonocliente,
+
+    };
+    console.log("Data enviar : " + data);
     $.ajax({
         type: "POST",
         dataType: "json",
         url: "controles/cliente.php",
-        data:{
-            accion:"Adicionar",
-            idcliente:idcliente,
-            nombrecliente:nombrecliente,
-            apellidocliente:apellidocliente,
-            fotocliente:fotocliente,
-            direccioncliente:direccioncliente,
-            ciudadcliente:ciudadcliente,
-            telefonocliente:telefonocliente,
-                    
-        },      
-        success: function(resp){
-           // $("#respuesta").html(resp);
-          Limpiar();
-         
+        data: data,
+        success: function (resp) {
+            Limpiar();
+            if (idcliente === "") {
+                $('#tablaclientes').DataTable().ajax.reload();
+                swal("Cliente Registrado correctamente", "", "success");
+            } else {
+                $('#tablaclientes').DataTable().ajax.reload();
+                swal("Cliente Actualizado correctamente", "", "success");
+            }
+
         }
     });
-}   
+}
 
 
 
 function  listadoclientes()
 {
+
     $("#tablaclientes").DataTable({
 
-        "ajax":{
-            "url":"controles/cliente.php",
-            "dataSrc":""
+        "ajax": {
+            "url": "controles/cliente.php",
+            dataSrc: ''
         },
-        
-        "columns":[
-            {"render": function () {
-                return "<img class='borrar' src='https://noverbal.es/uploads/blog/rostro-de-un-criminal.jpg' width=50 style='cursor:pointer' />"
-              }},
-            {"data":"nombre"},
-            {"data":"apellido"},
-            {"data":"foto"},
-            
-            {"render": function () {
-                return "<button data-id="+"id"+"onclick='EditarCliente()'  type='button' class='btn btn-edit btn-success btn-sm'>Editar</button>"
-              }},
-            {"defaultContent": "<button data-id="+"id"+"onclick='EditarCliente()'  type='button' class='btn btn-edit btn-success btn-sm'>Editar</button>"},
-        
-        ]
+        columnDefs: [{
+                "targets": 0,
+                "data": 'Foto',
+                "render": function (data, type, row, meta) {
+                    return '<img src="' + data + '" alt="' + data + '"height="64" width="64"/>';
+                }
+            }
+        ],
+        "columns": [
+            {"data": "Foto"},
+            {"data": "Nombre"},
+            {"data": "Apellido"},
+            {"data": "Direccion"},
+            {"data": "Ciudad"},
+            {"data": "Telefono"},
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return '<button data-id=' + row.Id + ' onclick="BuscarCliente()" class="btn btn-edit btn-success">Editar</button>';
+                }
+            }, {
+                data: null,
+                render: function (data, type, row) {
+                    return '<button data-id=' + row.Id + '  onclick="EliminarCliente()" class="bn btn-del btn-danger">Eliminar</button>';
+                }
+            }
+        ], language: {
+            "sProcessing": "Procesando...",
+            "sLengthMenu": "Mostrar _MENU_ registros",
+            "sZeroRecords": "No se encontraron resultados",
+            "sEmptyTable": "Ningún dato disponible en esta tabla",
+            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sSearch": "Buscar:",
+            "sUrl": "",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst": "Primero",
+                "sLast": "Último",
+                "sNext": "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            },
+        }, retrieve: true,
+        paging: false
     });
-    
-    }
-    
+
+}
+
 
 function BuscarCliente()
 {
-    $(".btn-edit").click(function(){
-        
+
+
+    $(document).on("click", ".btn-edit", function () {
         idcliente = $(this).data("id");
-        //console.log(idcliente);
-     
+        console.log(idcliente);
+
         $.ajax({
             type: "POST",
             dataType: "json",
-            url:"controles/cliente.php",
-            data:{
-                accion:'BuscarC',
-                idcliente:idcliente,
-            },      
-            success: function(resp){
-            console.log(resp);
-            console.log('Respuestas');
+            url: "controles/cliente.php",
+            data: {
+                accion: 'BuscarC',
+                idcliente: idcliente,
+            },
+            success: function (resp) {
+                console.log(resp);
+                console.log('Respuestas');
 
-             $("#nombrecliente").val(resp[0]['nombre']);
-             $("#apellidocliente").val(resp[0]['apellido']);
-             $("#fotocliente").val(resp[0]['foto']);
-             $("#direccioncliente").val(resp[0]['direccion']);
-             $("#ciudadcliente").val(resp[0]['ciudad']);
-             $("#telefonocliente").val(resp[0]['telefono']);
-             $("#idcliente").val(resp[0]['id']);
-
+                $("#nombrecliente").val(resp[0]['Nombre']);
+                $("#apellidocliente").val(resp[0]['Apellido']);
+                $("#fotocliente").val(resp[0]['Foto']);
+                $("#direccioncliente").val(resp[0]['Direccion']);
+                $("#ciudadcliente").val(resp[0]['Ciudad']);
+                $("#telefonocliente").val(resp[0]['Telefono']);
+                $("#idcliente").val(resp[0]['Id']);
             }
         });
 
 
-     
-    });
 
-}   
+    });
+}
 
 function EliminarCliente()
 {
-    $(".btn-del").click(function(){
-        
+
+    $(document).on("click", ".btn-del", function () {
         idclientedel = $(this).data("id");
         //console.log(idcliente);
-     
         $.ajax({
             type: "POST",
             dataType: "json",
-            url:"controles/cliente.php",
-            data:{
-                accion:'EliminarC',
-                idclientedel:idclientedel,
-            },      
-            success: function(resp){
-                listadoclientes();  
-                alert('Cliente Eliminado');
-
+            url: "controles/cliente.php",
+            data: {
+                accion: 'EliminarC',
+                idclientedel: idclientedel,
+            },
+            success: function (resp) {
+                listadoclientes();
+                //alert('Cliente Eliminado');
+                $('#tablaclientes').DataTable().ajax.reload();
+                swal("Cliente eliminado", "", "success");
             }
         });
-
-
-     
     });
 
-}   
+    /* $(".btn-del").click(function () {
+     
+     idclientedel = $(this).data("id");
+     
+     $.ajax({
+     type: "POST",
+     dataType: "json",
+     url: "controles/cliente.php",
+     data: {
+     accion: 'EliminarC',
+     idclientedel: idclientedel,
+     },
+     success: function (resp) {
+     listadoclientes();
+     alert('Cliente Eliminado');
+     
+     }
+     });
+     });*/
+
+}
 
 
 function Limpiar()
